@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Filename:
+  = @medium.filename
+%p
+  %b Modified filename:
+  = @medium.modified_filename
+
+= link_to 'Edit', edit_medium_path(@medium)
+\|
+= link_to 'Back', media_path
