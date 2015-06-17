@@ -7,4 +7,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %div{:class => "container"}
+      %ul{:class => "nav nav-tabs"}
+        %li= link_to 'sources', sources_path
+        %li= link_to 'media',   media_path
     = yield
