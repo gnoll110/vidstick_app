@@ -1,1 +1,1 @@
-json.extract! @source, :id, :created_at, :updated_at
+json.extract! @source, :id, :path :created_at, :updated_at
