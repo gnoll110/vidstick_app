@@ -30,7 +30,7 @@ RSpec.describe SourcesController, type: :controller do
 
   let(:invalid_attributes) {
     #skip("Add a hash of attributes invalid for your model")
-    {:path => 'DDD'}
+    {:path => 'D'}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -105,14 +105,16 @@ RSpec.describe SourcesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        #skip("Add a hash of attributes valid for your model")
+        {:path => 'Downloads'}
       }
 
       it "updates the requested source" do
         source = Source.create! valid_attributes
         put :update, {:id => source.to_param, :source => new_attributes}, valid_session
         source.reload
-        skip("Add assertions for updated state")
+        #skip("Add assertions for updated state")
+        expect(source.path).to eq('Downloads')
       end
 
       it "assigns the requested source as @source" do

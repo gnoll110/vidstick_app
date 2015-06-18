@@ -30,7 +30,7 @@ RSpec.describe MediaController, type: :controller do
 
   let(:invalid_attributes) {
     #skip("Add a hash of attributes invalid for your model")
-    {:fff => 'jjj'}
+    {:filename => 'j'}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -105,14 +105,16 @@ RSpec.describe MediaController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        #skip("Add a hash of attributes valid for your model")
+        {:filename => 'xxx.mp3'}
       }
 
       it "updates the requested medium" do
         medium = Medium.create! valid_attributes
         put :update, {:id => medium.to_param, :medium => new_attributes}, valid_session
         medium.reload
-        skip("Add assertions for updated state")
+        #skip("Add assertions for updated state")
+        expect(medium.filename).to eq('xxx.mp3')
       end
 
       it "assigns the requested medium as @medium" do
