@@ -24,11 +24,13 @@ RSpec.describe MediaController, type: :controller do
   # Medium. As you add validations to Medium, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    #skip("Add a hash of attributes valid for your model")
+    {:filename => 'aaa.mp4'}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    #skip("Add a hash of attributes invalid for your model")
+    {:fff => 'jjj'}
   }
 
   # This should return the minimal set of values that should be in the session
