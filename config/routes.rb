@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :destinations
   get 'welcome/index'
+  get 'welcome/loader'
 
+  resources :welcome
   resources :media
   resources :sources
 
-  root 'sources#index'
+  root 'welcome#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -9,6 +9,7 @@
   %body
     %div{:class => "container"}
       %ul{:class => "nav nav-tabs"}
+        %li= link_to 'welcome', welcome_index_path
         %li= link_to 'sources', sources_path
         %li= link_to 'media',   media_path
     = yield
