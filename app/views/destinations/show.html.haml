@@ -1,9 +1,10 @@
-%p#notice= notice
+%div{:class => "media"}
+  %div{:class => "media-body"}
+    %p#notice= notice
 
-%p
-  %b Path:
-  = @destination.path
-
-= link_to 'Edit', edit_destination_path(@destination)
-\|
-= link_to 'Back', destinations_path
+    %p
+      %b Path:
+      = @destination.path
+    = link_to 'Edit', edit_destination_path(@destination)
+    \|
+    = link_to 'Back', destinations_path
