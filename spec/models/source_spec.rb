@@ -10,6 +10,7 @@ RSpec.describe Source, type: :model do
       source = Source.create
       source.path = "/home/noel/Downloads"
       source.save
+      expect(Source.count).to eq(1)
     end
   end
 end
