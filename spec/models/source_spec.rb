@@ -11,6 +11,7 @@ RSpec.describe Source, type: :model do
       source.path = "/home/noel/Downloads"
       source.save
       expect(Source.count).to eq(1)
+      expect(source.errors.full_messages).to eq(['Path has already been taken'])
     end
   end
 end
