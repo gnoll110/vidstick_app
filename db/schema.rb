@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621041209) do
+ActiveRecord::Schema.define(version: 20150626080204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,23 @@ ActiveRecord::Schema.define(version: 20150621041209) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "relations", force: :cascade do |t|
+    t.integer  "medium_id"
+    t.integer  "destination_id"
+    t.string   "relation_code"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "relations", ["destination_id"], name: "index_relations_on_destination_id", using: :btree
+  add_index "relations", ["medium_id"], name: "index_relations_on_medium_id", using: :btree
+
   create_table "sources", force: :cascade do |t|
     t.string   "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "relations", "destinations"
+  add_foreign_key "relations", "media"
 end
