@@ -12,5 +12,32 @@
   .field
     = f.label :modified_filename
     = f.text_field :modified_filename
+  .row 
+    .field
+      = f.collection_select :id, Destination.order('path ASC'), :id, :path  
   .actions
     = f.submit 'Save'
+
+= simple_form_for @medium, html: { multipart: true } do |f|
+  - if @medium.errors.any?
+    #errors
+      %p
+        = @medium.errors.count
+        Prevented this medium froms saving
+      %ul
+        - @medium.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :filename, input_html: { class: 'form-control' }
+    = f.input :modified_filename, input_html: { class: 'form-control' }
+
+    .row
+      .col-md-6
+        %h3 Destinations
+        #destinations
+          = f.simple_fields_for :relations do |relation|
+            = render 'destination_fields', f: relation
+          .links
+            = link_to_add_association 'Add Destinations', f, :destinations, class: "btn btn-default add-button"
+
+  = f.button :submit, class: "btn btn-primary"

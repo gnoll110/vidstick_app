@@ -16,6 +16,8 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'cocoon'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

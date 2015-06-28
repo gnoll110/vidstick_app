@@ -15,6 +15,7 @@ class MediaController < ApplicationController
   # GET /media/new
   def new
     @medium = Medium.new
+    @medium.relations.build
   end
 
   # GET /media/1/edit
@@ -69,6 +70,6 @@ class MediaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medium_params
-      params.require(:medium).permit(:filename, :modified_filename)
+      params.require(:medium).permit(:filename, :modified_filename, relations_attributes: [:id, :medium_id, :destination_id, :done, :_destroy])
     end
 end
