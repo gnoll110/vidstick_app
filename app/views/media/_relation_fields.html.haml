@@ -1,5 +1,4 @@
 .form-inline.clearfix
   .nested-fields
     = f.collection_select :destination_id, Destination.order('path ASC'), :id, :path
-    %p = f.input :path, input_html: { class: 'form-input form-control' }
-    %p = link_to_remove_association "Remove", f, class: "form-button btn btn-default"
+    = link_to_remove_association "Remove", f, class: "form-button btn btn-default"
