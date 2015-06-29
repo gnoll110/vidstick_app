@@ -34,10 +34,10 @@
     .row
       .col-md-6
         %h3 Destinations
-        #destinations
+        #relations
           = f.simple_fields_for :relations do |relation|
-            = render 'destination_fields', f: relation
+            = render 'relation_fields', f: relation
           .links
-            = link_to_add_association 'Add Destinations', f, :destinations, class: "btn btn-default add-button"
+            = link_to_add_association 'Add Destinations', f, :relations, class: "btn btn-default add-button"
 
   = f.button :submit, class: "btn btn-primary"
