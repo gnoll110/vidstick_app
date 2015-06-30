@@ -6,6 +6,12 @@
 %p
   %b Modified filename:
   = @medium.modified_filename
+#destinations
+  %h2 Destinations
+  %ul
+    - @medium.relations.each do |relation|
+      %li= relation.destination_id 
+      %li= Destination.find(relation.destination_id).path
 
 = link_to 'Edit', edit_medium_path(@medium)
 \|
