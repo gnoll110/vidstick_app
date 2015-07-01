@@ -1,3 +1,19 @@
 %h1 Welcome#index
 %p Find me in app/views/welcome/index.html.haml
 = link_to 'Load', :controller => "welcome", :action => "loader"
+= link_to 'Build stick', :controller => "welcome", :action => "builder"
+= simple_form_for @jjj do |f|
+  - if @jjj.errors.any?
+    #errors
+      %p
+        = @jjj.errors.count
+        Prevented this medium froms saving
+      %ul
+        - @jjj.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :filename, input_html: { class: 'form-control' }
+    = f.input :modified_filename, input_html: { class: 'form-control' }
+
+    = f.collection_select :destination_id, Destination.order('path ASC'), :id, :path
+  = f.button :submit, class: "btn btn-primary"

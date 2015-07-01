@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :destinations
   get 'welcome/index'
   get 'welcome/loader'
+  get 'welcome/builder'
 
   resources :welcome
   resources :media
