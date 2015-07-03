@@ -25,6 +25,12 @@ class WelcomeController < ApplicationController
 
   def builder
     puts "BBB"
+    puts params[:stick]
+    puts "CCC"
+    render 'index'    
+  end
+
+  def sump  
     sources = Source.all
     destination = Destination.find_by_path('eco/permaculture')
     puts destination

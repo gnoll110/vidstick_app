@@ -4,4 +4,8 @@
 = simple_form_for :stick, url: welcome_builder_path  do |f|
   .panel-body
     = f.collection_select :destination_id, Destination.order('path ASC'), :id, :path
+    = f.input :dest1, collection: ['a', 'b'], input_html: { multiple: true }
+    = f.input :dest2, collection: Destination.order('path ASC'), input_html: { multiple: true }
+    = f.collection_select :dest3, Destination.order('path ASC'), :id, :path, {}, {:multiple => true, :size => 6, :style => 'width:100%'}
+
   = f.button :submit, class: "btn btn-primary"
