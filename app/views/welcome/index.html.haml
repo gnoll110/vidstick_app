@@ -5,7 +5,7 @@
     = link_to 'Load', :controller => "welcome", :action => "loader"
     = simple_form_for :stick, url: welcome_builder_path  do |f|
       .panel-body
-        = f.collection_select :dest3, Destination.order('path ASC'), :id, :path, 
+        = f.collection_select :destination, Destination.order('path ASC'), :id, :path, 
                               {:prompt => 'Please select one or many'}, 
                               {:multiple => true, :size => 15, :style => 'width:50%'}
       .panal-body

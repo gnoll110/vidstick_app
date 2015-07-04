@@ -25,7 +25,13 @@ class WelcomeController < ApplicationController
 
   def builder
     puts "BBB"
-    puts params[:stick]
+    form_data = params[:stick]
+    dest_array = form_data[:destination]
+    dest_array.each do | dest |
+      if dest.length > 0
+        puts dest.to_i
+      end
+    end
     puts "CCC"
     render 'index'    
   end
