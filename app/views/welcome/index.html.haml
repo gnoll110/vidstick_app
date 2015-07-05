@@ -1,12 +1,15 @@
 %h1 Welcome#index
 %div{:class => "media"}
   %div{:class => "media-body"}
-    %p Find me in app/views/welcome/index.html.haml
-    = link_to 'Load', :controller => "welcome", :action => "loader"
-    = simple_form_for :stick, url: welcome_builder_path  do |f|
-      .panel-body
-        = f.collection_select :destination, Destination.order('path ASC'), :id, :path, 
-                              {:prompt => 'Please select one or many'}, 
-                              {:multiple => true, :size => 15, :style => 'width:50%'}
-      .panal-body
-        = f.button :submit, class: "btn btn-primary"
+    .panel-body
+      .row
+        %p Find me in app/views/welcome/index.html.haml
+        .col-md-6
+          = link_to 'Load', welcome_builder_path, class: "btn btn-primary"
+        .col-md-6
+          = simple_form_for :stick, url: welcome_builder_path  do |f|
+            .panel-body
+              = f.collection_select :destination, Destination.order('path ASC'), :id, :path, 
+                                    {:prompt => 'Please select one or many'}, 
+                                    {:multiple => true, :size => 15, :style => 'width:50%'}
+            = f.button :submit, class: "btn btn-primary"
