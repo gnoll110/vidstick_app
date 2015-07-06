@@ -19,5 +19,8 @@
             = render 'relation_fields', f: relation
           .links
             = link_to_add_association 'Add Destinations', f, :relations, class: "btn btn-default add-button"
+      .col-md-6
+        = video_tag(["/home/noel/dwhelper/High_Cable_Curl.mp4"], :size => "320x240", :controls => true)
+        = video_tag(["file:///home/noel/dwhelper/High_Cable_Curl.mp4"], :size => "320x240", :controls => true)
 
   = f.button :submit, class: "btn btn-primary"

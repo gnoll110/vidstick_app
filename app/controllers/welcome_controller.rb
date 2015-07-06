@@ -27,13 +27,24 @@ class WelcomeController < ApplicationController
     puts "BBB"
     form_data = params[:stick]
     dest_array = form_data[:destination]
+    final_dest_array = []
     dest_array.each do | dest |
       if dest.length > 0
         puts dest.to_i
+        final_dest_array << dest
       end
     end
     puts "CCC"
+    puts final_dest_array
+    final_file_array = get_file_list(final_dest_array)
+    build_stick(final_file_array)
     render 'index'    
+  end
+
+  def get_file_list(dest_array)
+  end
+
+  def build_stick(file_array)
   end
 
   def sump  
