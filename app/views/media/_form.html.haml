@@ -38,6 +38,7 @@
         = video_tag(["http://mpegmedia.abc.net.au/tv/gardeningaus/vodcast/gardeningaus_15_26_17.mp4"], :size => "320x240", :controls => true)
 
   = f.button :submit, class: "btn btn-primary"
+%button{:onclick => "getElementById('medium_modified_filename').value=getElementById('medium_filename').value"} What is the time?
 :javascript
   var video = document.querySelector("section.nocontrols video");
   document.querySelector("div.controls button.play").addEventListener('click', function(e) {
