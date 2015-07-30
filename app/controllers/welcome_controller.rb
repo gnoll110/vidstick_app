@@ -23,6 +23,8 @@ class WelcomeController < ApplicationController
   end
 
   def builder
+    build_stick = BuildStick.new(params)
+    build_stick.process
     render 'index'
   end
 end

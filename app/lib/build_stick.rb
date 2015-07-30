@@ -1,11 +1,16 @@
 class BuildStick
+  def initialize(params)
+    @params = params
+  end
+
   def process
-    get_file_list
-    build_stick
+    dest_array = builder
+    file_array = get_file_list(dest_array)
+    build_stick(file_array)
   end
 
   def builder
-    form_data = params[:stick]
+    form_data = @params[:stick]
     dest_array = form_data[:destination]
     final_dest_array = []
     dest_array.each do | dest |
@@ -15,9 +20,7 @@ class BuildStick
       end
     end
     puts final_dest_array
-    final_file_array = get_file_list(final_dest_array)
-    build_stick(final_file_array)
-    render 'index'    
+    final_dest_array
   end
 
   def get_file_list(dest_array)
