@@ -10,7 +10,9 @@ class BuildStick
   end
 
   def builder
+    #puts '>'+@params.to_s
     form_data = @params[:stick]
+    #puts '>>'+form_data.to_s
     dest_array = form_data[:destination]
     final_dest_array = []
     dest_array.each do | dest |
