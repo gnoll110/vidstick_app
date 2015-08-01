@@ -26,9 +26,13 @@ class BuildStick
   end
 
   def get_file_list(dest_array)
+    dest_array.each do dest
+    end
   end
 
   def build_stick(file_array)
+    file_array.each do file
+    end
   end
 
   def sump  
