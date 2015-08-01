@@ -26,12 +26,27 @@ class BuildStick
   end
 
   def get_file_list(dest_array)
-    dest_array.each do dest
+    puts dest_array.size
+    puts '>'+dest_array.to_s
+    file_set = Set.new
+    dest_array.each do | dest |
+      files = Destination.find(dest).media
+      files.each do | file |
+        puts '>>'+file.filename
+        file_set << file.filename
+      end
     end
+    file_set
   end
 
-  def build_stick(file_array)
-    file_array.each do file
+  def build_stick(file_set)
+    puts file_set.size
+    puts '?'+file_set.to_s
+    file_set.each do | file |
+      paths = Medium.find_by_filename(file).destinations
+      paths.each do | path |
+        puts '>>>'+path.path+'>>'+file
+      end
     end
   end
 
