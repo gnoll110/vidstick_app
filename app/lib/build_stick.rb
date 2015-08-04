@@ -1,10 +1,11 @@
 class BuildStick
   attr_reader :stick
 
-  def initialize(params)
-    pp params
-    @stick = params[:stick] || []
+  def initialize(stick)
+    pp stick
+    @stick = stick
     pp @stick
+    puts '.'
   end
 
   def process
@@ -14,10 +15,11 @@ class BuildStick
   end
 
   def builder
-    puts '>'
     pp @stick
+    puts '..'
     #form_data =
-    puts '>>'+@stick[:destination]
+    pp @stick[:destination]
+    puts '...'
     #puts '>>'
     #puts form_data
     dest_array = form_data[:destination]
@@ -81,9 +83,4 @@ class BuildStick
     #end
     render 'index'    
   end
-
-  private
-   def stick_params
-      params.require(:stick).permit(:destination)
-    end  
 end

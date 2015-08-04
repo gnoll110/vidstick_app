@@ -23,8 +23,17 @@ class WelcomeController < ApplicationController
   end
 
   def builder
-    build_stick = BuildStick.new(params)
+    puts '+++'
+    stick = stick_params
+    puts stick
+    puts '///'
+    build_stick = BuildStick.new(stick)
     build_stick.process
     render 'index'
   end
+
+private
+  def stick_params
+    params.require(:stick).permit(:destination)
+  end  
 end
