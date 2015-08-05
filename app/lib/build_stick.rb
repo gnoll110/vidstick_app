@@ -18,11 +18,16 @@ class BuildStick
     pp @stick
     puts '..'
     #form_data =
-    pp @stick[:destination]
+    @stick.each do |key, value|
+      puts ' : ' + key.class.to_s
+      puts '.: ' + key.to_s + ' : ' + value.to_s
+    end
     puts '...'
+    pp @stick["destination"]
+    puts '....'
     #puts '>>'
     #puts form_data
-    dest_array = form_data[:destination]
+    dest_array = @stick["destination"]
     final_dest_array = Array.new
     dest_array.each do | dest |
       if dest.length > 0
@@ -83,4 +88,8 @@ class BuildStick
     #end
     render 'index'    
   end
+private
+  #def stick_params
+  #  stick.require(:destination)
+  #end  
 end

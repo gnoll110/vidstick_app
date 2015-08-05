@@ -25,7 +25,7 @@ class WelcomeController < ApplicationController
   def builder
     puts '+++'
     stick = stick_params
-    puts stick
+    pp stick
     puts '///'
     build_stick = BuildStick.new(stick)
     build_stick.process
