@@ -44,6 +44,7 @@ class BuildStick
     puts '>'+dest_array.to_s
     file_set = Set.new
     dest_array.each do | dest |
+      first = true
       files = Destination.find(dest).media
       files.each do | file |
         puts '>>'+file.filename

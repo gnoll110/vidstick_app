@@ -24,6 +24,8 @@ class WelcomeController < ApplicationController
 
   def builder
     puts '+++'
+    pp params
+    puts '+++'
     stick = stick_params
     pp stick
     puts '///'
@@ -34,6 +36,6 @@ class WelcomeController < ApplicationController
 
 private
   def stick_params
-    params.require(:stick).permit(:destination)
+    params.require(:stick) #.permit(:destination)
   end  
 end
