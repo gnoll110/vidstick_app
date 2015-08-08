@@ -1,3 +1,6 @@
+require 'fileutils'
+include FileUtils::Verbose
+
 class BuildStick
   attr_reader :stick
 
@@ -6,6 +9,7 @@ class BuildStick
     @stick = stick
     pp @stick
     puts '.'
+    @sources = Source.all
   end
 
   def process
@@ -44,7 +48,6 @@ class BuildStick
     puts '>'+dest_array.to_s
     file_set = Set.new
     dest_array.each do | dest |
-      first = true
       files = Destination.find(dest).media
       files.each do | file |
         puts '>>'+file.filename
@@ -56,11 +59,34 @@ class BuildStick
 
   def build_stick(file_set)
     puts file_set.size
-    puts '?'+file_set.to_s
     file_set.each do | file |
+      first = true
+
+      found = false
+      source_file = nil
+      @sources.each do | source |
+        source_file = File.join(source.path, file)
+        found = File.exists?(source_file)
+        puts source_file+' '+found.to_s
+        break if found
+      end
+      break if !found
+      puts '??'+source_file
+
       paths = Medium.find_by_filename(file).destinations
       paths.each do | path |
-        puts '>>>'+path.path+'>>'+file
+        puts '>>>'+path.path+'>>'+file+'>'+first.to_s
+        source_file = 
+        dest_file = File.join('/media/noel/USB STICK', path.path, file)
+        dest_dir  = File.dirname(dest_file)
+        if !Dir.exists?(dest_dir)
+          puts 'made dir '+dest_dir
+          mkdir_p dest_dir
+          #FileUtils.mkdir_p dest_dir
+        end
+        comd = 'cp "'+source_file.to_s+'" "'+dest_file+'"'
+        FileUtils.cp source_file dest_file
+        first = false
       end
     end
   end
