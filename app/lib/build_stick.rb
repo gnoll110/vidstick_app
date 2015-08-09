@@ -75,9 +75,8 @@ class BuildStick
 
       paths = Medium.find_by_filename(file).destinations
       paths.each do | path |
-        puts '>>>'+path.path+'>>'+file+'>'+first.to_s
-        source_file = 
-        dest_file = File.join('/media/noel/USB STICK', path.path, file)
+        puts '>>>'+path.path+'>>'+file+'>'+first.to_s 
+        dest_file = File.join('/media/noel/USB DISK', path.path, file)
         dest_dir  = File.dirname(dest_file)
         if !Dir.exists?(dest_dir)
           puts 'made dir '+dest_dir
@@ -85,7 +84,8 @@ class BuildStick
           #FileUtils.mkdir_p dest_dir
         end
         comd = 'cp "'+source_file.to_s+'" "'+dest_file+'"'
-        FileUtils.cp source_file dest_file
+        puts '>>>>'+comd
+        FileUtils.cp(source_file.to_s, dest_file.to_s)
         first = false
       end
     end
