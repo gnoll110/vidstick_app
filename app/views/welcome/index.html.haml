@@ -5,7 +5,7 @@
       .row
         %p Find me in app/views/welcome/index.html.haml
         .col-md-6
-          = link_to 'Load', welcome_builder_path, class: "btn btn-primary"
+          = link_to 'Load', welcome_loader_path, class: "btn btn-primary"
         .col-md-6
           = simple_form_for :stick, url: welcome_builder_path  do |f|
             .panel-body
