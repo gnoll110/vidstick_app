@@ -18,6 +18,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'cocoon'
+gem 'simplecov'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
