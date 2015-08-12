@@ -85,7 +85,12 @@ class BuildStick
         end
         comd = 'cp "'+source_file.to_s+'" "'+dest_file+'"'
         puts '>>>>'+comd
-        FileUtils.cp(source_file.to_s, dest_file.to_s)
+        if first
+          FileUtils.cp(source_file.to_s, dest_file.to_s)
+          old = dest_file.to_s
+        else
+          FileUtils.ln(old, source_file.to_s)
+        end
         first = false
       end
     end
