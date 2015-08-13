@@ -19,18 +19,6 @@ class BuildStick
   end
 
   def builder
-    pp @stick
-    puts '..'
-    #form_data =
-    @stick.each do |key, value|
-      puts ' : ' + key.class.to_s
-      puts '.: ' + key.to_s + ' : ' + value.to_s
-    end
-    puts '...'
-    pp @stick["destination"]
-    puts '....'
-    #puts '>>'
-    #puts form_data
     dest_array = @stick["destination"]
     final_dest_array = Array.new
     dest_array.each do | dest |
@@ -44,13 +32,10 @@ class BuildStick
   end
 
   def get_file_list(dest_array)
-    puts dest_array.size
-    puts '>'+dest_array.to_s
     file_set = Set.new
     dest_array.each do | dest |
       files = Destination.find(dest).media
       files.each do | file |
-        puts '>>'+file.filename
         file_set << file.filename
       end
     end
@@ -71,25 +56,20 @@ class BuildStick
         break if found
       end
       break if !found
-      puts '??'+source_file
-
+  
+      old = ''
       paths = Medium.find_by_filename(file).destinations
       paths.each do | path |
-        puts '>>>'+path.path+'>>'+file+'>'+first.to_s 
         dest_file = File.join('/media/noel/USB DISK', path.path, file)
         dest_dir  = File.dirname(dest_file)
         if !Dir.exists?(dest_dir)
-          puts 'made dir '+dest_dir
-          mkdir_p dest_dir
-          #FileUtils.mkdir_p dest_dir
+          FileUtils.mkdir_p(dest_dir, :verbose => true)
         end
-        comd = 'cp "'+source_file.to_s+'" "'+dest_file+'"'
-        puts '>>>>'+comd
         if first
-          FileUtils.cp(source_file.to_s, dest_file.to_s)
+          FileUtils.cp(source_file.to_s, dest_file.to_s, :verbose => true)
           old = dest_file.to_s
         else
-          FileUtils.ln(old, source_file.to_s)
+          FileUtils.ln(old, dest_file.to_s, :verbose => true)
         end
         first = false
       end
