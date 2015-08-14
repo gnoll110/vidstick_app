@@ -5,10 +5,7 @@ class BuildStick
   attr_reader :stick
 
   def initialize(stick)
-    pp stick
     @stick = stick
-    pp @stick
-    puts '.'
     @sources = Source.all
   end
 
@@ -23,11 +20,9 @@ class BuildStick
     final_dest_array = Array.new
     dest_array.each do | dest |
       if dest.length > 0
-        puts dest.to_i
         final_dest_array << dest
       end
     end
-    puts final_dest_array
     final_dest_array
   end
 
@@ -43,7 +38,6 @@ class BuildStick
   end
 
   def build_stick(file_set)
-    puts file_set.size
     file_set.each do | file |
       first = true
 
@@ -52,7 +46,6 @@ class BuildStick
       @sources.each do | source |
         source_file = File.join(source.path, file)
         found = File.exists?(source_file)
-        puts source_file+' '+found.to_s
         break if found
       end
       break if !found
