@@ -10,11 +10,11 @@ class ScanSources
 
   def process_source(source)
     ['mp4','mp3'].each do | ext |
-      process_extention(ext)
+      process_extention(source, ext)
     end
   end
 
-  def process_extention(ext)
+  def process_extention(source, ext)
     pattern = File.join(source.path, '*.'+ext)
     list = Dir.glob(pattern)
     list.each do | filename |
