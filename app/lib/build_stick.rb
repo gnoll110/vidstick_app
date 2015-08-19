@@ -15,6 +15,8 @@ class BuildStick
     build_stick(file_array)
   end
 
+  private
+
   def builder
     dest_array = @stick["destination"]
     final_dest_array = Array.new
@@ -93,8 +95,4 @@ class BuildStick
     #end
     render 'index'    
   end
-private
-  #def stick_params
-  #  stick.require(:destination)
-  #end  
 end
