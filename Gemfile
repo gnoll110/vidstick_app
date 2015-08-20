@@ -18,7 +18,6 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'cocoon'
-gem 'simplecov'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -50,5 +49,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  gem 'simplecov'
   gem 'mutant'
+  gem 'rubocop', require: false
 end
