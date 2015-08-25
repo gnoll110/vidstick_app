@@ -62,13 +62,16 @@ class MediaController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medium
-      @medium = Medium.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def medium_params
-      params.require(:medium).permit(:filename, :modified_filename, relations_attributes: [:id, :destination_id, :_destroy])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medium
+    @medium = Medium.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def medium_params
+    params.require(:medium).permit(:filename, :modified_filename,
+                                   relations_attributes: [:id, :destination_id, :_destroy])
+  end
 end
