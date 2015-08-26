@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
   def loader
     scan_sources = ScanSources.new
     scan_sources.process
-    render 'index'    
+    render 'index'
   end
 
   def builder
@@ -18,8 +18,9 @@ class WelcomeController < ApplicationController
     render 'index'
   end
 
-private
+  private
+
   def stick_params
-    params.require(:stick) #.permit(:destination)
-  end  
+    params.require(:stick) # .permit(:destination)
+  end
 end
