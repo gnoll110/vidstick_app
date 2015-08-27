@@ -70,29 +70,4 @@ class BuildStick
       end
     end
   end
-
-  def sump
-    sources = Source.all
-    destination = Destination.find_by_path('eco/permaculture')
-    puts destination
-      # destinations.each do | destination |
-      puts destination.path
-      destination.media.each do |medium|
-        puts medium.filename
-        puts medium.id
-        sources.each do |source|
-          puts source.path
-          full_filename = File.join(source.path, medium.filename)
-          puts full_filename
-          if File.exist?(full_filename)
-            puts '>>>' + full_filename
-          end
-        end
-        medium.destinations.each do |final_dest|
-          puts '>>>>>>' + final_dest.path
-        end
-      end
-    # end
-    render 'index'
-  end
 end
