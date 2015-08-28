@@ -53,8 +53,10 @@ class BuildStick
       break if !found
   
       old = ''
+      medium = Medium.find_by_filename(file)
       paths = Medium.find_by_filename(file).destinations
       paths.each do |path|
+        #if medium.modified_filename
         dest_file = File.join('/media/noel/USB DISK', path.path, file)
         dest_dir  = File.dirname(dest_file)
         if !Dir.exist?(dest_dir)
