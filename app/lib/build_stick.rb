@@ -56,8 +56,12 @@ class BuildStick
       medium = Medium.find_by_filename(file)
       paths = Medium.find_by_filename(file).destinations
       paths.each do |path|
-        #if medium.modified_filename
-        dest_file = File.join('/media/noel/USB DISK', path.path, file)
+        if medium.modified_filename != '' && medium.filename != medium.modified_filename
+          final_dest_file = medium.modified_filename
+        else
+          final_dest_file = file
+        end
+        dest_file = File.join('/media/noel/USB DISK', path.path, final_dest_file)
         dest_dir  = File.dirname(dest_file)
         if !Dir.exist?(dest_dir)
           FileUtils.mkdir_p(dest_dir, :verbose => true)
