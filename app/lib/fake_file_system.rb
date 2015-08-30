@@ -1,0 +1,3 @@
+class FakeFileSystem < FileSystemTemplate
+
+end
