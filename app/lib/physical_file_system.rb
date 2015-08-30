@@ -1,0 +1,3 @@
+class PhysicalFileSystem < FileSystemTemplate
+
+end
