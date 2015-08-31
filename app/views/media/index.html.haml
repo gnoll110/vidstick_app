@@ -5,7 +5,6 @@
       %thead
         %tr
           %th Filename
-          %th Modified filename
           %th Cnt
           %th
           %th
@@ -15,7 +14,6 @@
         - @media.each do |medium|
           %tr
             %td= medium.filename
-            %td= medium.modified_filename
             %td= medium.destinations.count
             %td= link_to 'Show', medium
             %td= link_to 'Edit', edit_medium_path(medium)
