@@ -19,26 +19,10 @@
             = render 'relation_fields', f: relation
           .links
             = link_to_add_association 'Add Destinations', f, :relations, class: "btn btn-default add-button"
-        %section
-          %section.video
-            %video{:width => 320, :height => 240, :controls => true}
-              %source{:src => "http://mpegmedia.abc.net.au/tv/gardeningaus/vodcast/gardeningaus_15_26_17.mp4", :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
-        %section
-          %section.video
-            %video{:width => 320, :height => 240, :controls => true}
-              %source{:src => "file:///home/noel/dwhelper/High_Cable_Curl.mp4", :type => 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
-        %video{:id => "example_video_1", :class => "video-js vjs-default-skin", :width => "640", :height => "264",
-               :src => "file:///home/noel/dwhelper/High_Cable_Curl.mp4", :type => 'video/mp4'}
       .col-md-6
-        %p = video_tag(["../../dwhelper/High_Cable_Curl.mp4"], :size => "320x240", :controls => true)
-        %p = video_tag(["../../../dwhelper/High_Cable_Curl.mp4"], :size => "320x240", :controls => true)
-        = video_tag("/dwhelper/High_Cable_Curl.mp4", :size => "320x240", :controls => true)
-        = video_tag(["/home/noel/dwhelper/High_Cable_Curl.mp4"], :size => "320x240", :controls => true)
-        = video_tag(["file:///home/noel/dwhelper/High_Cable_Curl.mp4"], :size => "320x240", :controls => true)
-        = video_tag(["http://mpegmedia.abc.net.au/tv/gardeningaus/vodcast/gardeningaus_15_26_17.mp4"], :size => "320x240", :controls => true)
 
   = f.button :submit, class: "btn btn-primary"
-%button{:onclick => "getElementById('medium_modified_filename').value=getElementById('medium_filename').value"} What is the time?
+%button{:onclick => "getElementById('medium_modified_filename').value=getElementById('medium_filename').value"} Refresh Modified filename
 :javascript
   var video = document.querySelector("section.nocontrols video");
   document.querySelector("div.controls button.play").addEventListener('click', function(e) {
