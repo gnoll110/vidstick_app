@@ -23,11 +23,3 @@
 
   = f.button :submit, class: "btn btn-primary"
 %button{:onclick => "getElementById('medium_modified_filename').value=getElementById('medium_filename').value"} Refresh Modified filename
-:javascript
-  var video = document.querySelector("section.nocontrols video");
-  document.querySelector("div.controls button.play").addEventListener('click', function(e) {
-    video.play();
-  }, false);
-  document.querySelector("div.controls button.pause").addEventListener('click', function(e) {
-    video.pause();
-  }, false);  
