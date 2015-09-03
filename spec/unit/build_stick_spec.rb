@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe BuildStick do
+  before :each do
+    let (:destination_4) { id: 4 }
+  end
+
   context ".process" do
     it "basic build" do
       builder = BuildStick.new({"destination"=>["", "4", "20", "5"]})
