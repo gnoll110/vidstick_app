@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe BuildStick do
   before :each do
-    destination = create(:destination)
+    create(:destination, :dev)
+    create(:destination, :eco)
+    create(:destination, :dev_rails)
   end
 
   context ".process" do
