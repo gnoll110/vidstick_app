@@ -52,4 +52,5 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'mutant'
   gem 'rubocop', require: false
+  gem "factory_girl_rails", "~> 4.2.1"
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe BuildStick do
   before :each do
-    let (:destination_4) { id: 4 }
+    destination = create :destination, id: "4"
   end
 
   context ".process" do
