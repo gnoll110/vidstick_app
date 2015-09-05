@@ -22,7 +22,7 @@ RSpec.describe WelcomeController, type: :controller do
       create(:destination, :eco)
       create(:destination, :dev_rails)
     end
-      
+
     it "returns http success" do
       post :builder, :stick => {"destination"=>["", "4", "20", "5"]}
       expect(response).to have_http_status(:success)
