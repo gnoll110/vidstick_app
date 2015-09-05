@@ -17,8 +17,14 @@ RSpec.describe WelcomeController, type: :controller do
   end
 
   describe "POST #builder" do
+    before :each do
+      create(:destination, :dev)
+      create(:destination, :eco)
+      create(:destination, :dev_rails)
+    end
+      
     it "returns http success" do
-      post :builder
+      post :builder, :stick => {"destination"=>["", "4", "20", "5"]}
       expect(response).to have_http_status(:success)
     end
   end
