@@ -13,3 +13,5 @@
                                     {:prompt => 'Please select one or many'}, 
                                     {:multiple => true, :size => 15, :style => 'width:50%'}
             = f.button :submit, class: "btn btn-primary"
+          = link_to 'Random builder', welcome_random_builder_path, class: "btn btn-primary"
+          = link_to 'Unclassified builder', welcome_unclassified_builder_path, class: "btn btn-primary"

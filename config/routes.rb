@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/loader'
   post 'welcome/builder'
+  get 'welcome/random_builder'
+  get 'welcome/unclassified_builder'
 
   resources :welcome
   resources :media

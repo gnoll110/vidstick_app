@@ -18,6 +18,12 @@ class WelcomeController < ApplicationController
     render 'index'
   end
 
+  def random_builder
+  end
+
+  def unclassified_builder
+  end
+
   private
 
   def stick_params
