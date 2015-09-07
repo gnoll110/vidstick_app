@@ -19,9 +19,11 @@ class WelcomeController < ApplicationController
   end
 
   def random_builder
+    render 'index'
   end
 
   def unclassified_builder
+    render 'index'
   end
 
   private
