@@ -16,9 +16,9 @@ describe BuildStick do
   end
 
   context ".process" do
-    it "default build" do
-      selector = DefaultSelector.new
-      builder = BuildStick.new(selector, {"destination"=>["", "4", "20", "5"]})
+    it "unclassified build" do
+      selector = UnclassifiedSelector.new
+      builder = BuildStick.new(selector)
       builder.process
     end
   end

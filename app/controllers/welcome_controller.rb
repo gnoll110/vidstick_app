@@ -13,16 +13,23 @@ class WelcomeController < ApplicationController
 
   def builder
     stick = stick_params
-    build_stick = BuildStick.new(stick)
+    selector = DefaultSelector.new
+    build_stick = BuildStick.new(selector, stick)
     build_stick.process
     render 'index'
   end
 
   def random_builder
+    selector = RandomSelector.new
+    build_stick = BuildStick.new(selector)
+    build_stick.process
     render 'index'
   end
 
   def unclassified_builder
+    selector = UnclassifiedSelector.new
+    build_stick = BuildStick.new(selector)
+    build_stick.process
     render 'index'
   end
 
