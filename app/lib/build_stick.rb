@@ -4,8 +4,8 @@ include FileUtils::Verbose
 class BuildStick
   attr_reader :stick
 
-  def initialize(stick)
-    @stick = stick
+  def initialize(p)
+    @stick = p[:stick]
     @sources = Source.all
   end
 
