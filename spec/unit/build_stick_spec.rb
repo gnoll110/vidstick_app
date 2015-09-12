@@ -18,7 +18,7 @@ describe BuildStick do
   context ".process" do
     it "default build" do
       selector = DefaultSelector.new
-      builder = BuildStick.new(selector, {"destination"=>["", "4", "20", "5"]})
+      builder = BuildStick.new({ selector: selector, stick: {"destination"=>["", "4", "20", "5"]} })
       builder.process
     end
   end
