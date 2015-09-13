@@ -18,7 +18,7 @@ describe BuildStick do
   context ".process" do
     it "unclassified build" do
       selector = UnclassifiedSelector.new
-      builder = BuildStick.new(selector)
+      builder = BuildStick.new({selector: selector})
       builder.process
     end
   end

@@ -18,7 +18,7 @@ describe BuildStick do
   context ".process" do
     it "random build" do
       selector = RandomSelector.new
-      builder = BuildStick.new(selector)
+      builder = BuildStick.new({selector: selector})
       builder.process
     end
   end
