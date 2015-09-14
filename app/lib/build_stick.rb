@@ -5,7 +5,8 @@ class BuildStick
   attr_reader :stick
 
   def initialize(p)
-    @stick = p[:stick]
+    @stick    = p[:stick]
+    @selector = p[:selector]
     @sources = Source.all
   end
 
@@ -18,14 +19,7 @@ class BuildStick
   private
 
   def builder
-    dest_array = @stick["destination"]
-    final_dest_array = Array.new
-    dest_array.each do |dest|
-      if dest.length > 0
-        final_dest_array << dest
-      end
-    end
-    final_dest_array
+    final_dest_array = @selector.run
   end
 
   def get_file_list(dest_array)
