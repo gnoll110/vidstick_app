@@ -1,4 +1,8 @@
 class DefaultSelector
+  def initialize(stick)
+    @stick = stick
+  end
+
   def run
     dest_array = @stick["destination"]
     final_dest_array = Array.new
