@@ -24,7 +24,7 @@ RSpec.describe WelcomeController, type: :controller do
     end
 
     it "returns http success" do
-      selector = DefaultSelector.new
+      selector = DefaultSelector.new({"destination"=>["", "4", "20", "5"]})
       post :builder, stick: {"destination"=>["", "4", "20", "5"]}
       expect(response).to have_http_status(:success)
     end

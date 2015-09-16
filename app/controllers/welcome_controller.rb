@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
 
   def builder
     stick = stick_params
-    selector = DefaultSelector.new(stick: stick)
+    selector = DefaultSelector.new(stick)
     build_stick = BuildStick.new({ selector: selector, stick: stick })
     build_stick.process
     render 'index'
