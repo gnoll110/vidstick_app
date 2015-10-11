@@ -11,8 +11,9 @@ class BuildStick
   end
 
   def process
-    dest_array = builder
-    file_array = get_file_list(dest_array)
+    #dest_array = builder
+    #file_array = get_file_list(dest_array)
+    file_array = @selector.run
     build_stick(file_array)
   end
 
