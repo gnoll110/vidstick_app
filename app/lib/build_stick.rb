@@ -13,26 +13,26 @@ class BuildStick
   def process
     #dest_array = builder
     #file_array = get_file_list(dest_array)
-    file_array = @selector.run
-    build_stick(file_array)
+    file_set = @selector.run
+    build_stick(file_set)
   end
 
   private
 
-  def builder
-    final_dest_array = @selector.run
-  end
+  #def builder
+  #  final_dest_array = @selector.run
+  #end
 
-  def get_file_list(dest_array)
-    file_set = Set.new
-    dest_array.each do |dest|
-      files = Destination.find(dest).media
-      files.each do |file|
-        file_set << file.filename
-      end
-    end
-    file_set
-  end
+  #def get_file_list(dest_array)
+  #  file_set = Set.new
+  #  dest_array.each do |dest|
+  #    files = Destination.find(dest).media
+  #    files.each do |file|
+  #      file_set << file.filename
+  #    end
+  #  end
+  #  file_set
+  #end
 
   def build_stick(file_set)
     file_set.each do |file|

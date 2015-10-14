@@ -10,6 +10,7 @@ describe BuildStick do
     create(:medium, :patterns)
     create(:medium, :permaculture)
     create(:medium, :hexagonal)
+    create(:medium, :ketosis)
     create(:relation, :dev_patterns)
     create(:relation, :eco_permaculture)
     create(:relation, :dev_rails_hexagonal)
