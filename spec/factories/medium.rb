@@ -14,5 +14,10 @@ FactoryGirl.define do
       id       3
       filename "Hexagonal Rails.mp4"
     end
+
+    trait :hexagonal do
+      id       4
+      filename "Ketosis.mp4"
+    end
   end
 end
