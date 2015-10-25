@@ -35,7 +35,9 @@ class BuildStick
   #end
 
   def build_stick(file_set)
+    puts 'A'
     file_set.each do |file|
+      puts 'A-1'
       first = true
 
       found = false
@@ -50,6 +52,8 @@ class BuildStick
       old = ''
       medium = Medium.find_by_filename(file)
       paths = Medium.find_by_filename(file).destinations
+      puts 'A-2'
+      puts path
       paths.each do |path|
         if medium.modified_filename != '' && medium.filename != medium.modified_filename
           final_dest_file = medium.modified_filename
